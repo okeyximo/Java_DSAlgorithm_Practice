@@ -35,24 +35,25 @@ package assessmentDay;//
 
 
 
-public class Algoexpert {
+public class GoodTuple {
     int solution (int[] a) {
-        // write your code in Java SE 8
-        int count = 0;
+        int result = 0;
         for (int i = 0; i < a.length - 2; i++) {
-            if (a[i] == a[i + 1] && a[i + 1] == a[i + 2]) {
-                count++;
-            } else if (a[i] == a[i + 1] || a[i] == a[i + 2] || a[i + 1] == a[i + 2]) {
-                count++;
+            if ((a[i] == a[i + 1] && a[i] != a[i + 2]) ||
+                    (a[i] == a[i + 2] && a[i] != a[i + 1]) ||
+                    a[i + 1] == a[i + 2] && a[i] != a[i + 1]) {
+                result++;
             }
         }
-        return count;
-
+        return result;
     }
 
+
     public static void main(String[] args) {
-        Algoexpert algoexpert = new Algoexpert();
-        int[] a = {1,1,1,2,1,3,4};
-        System.out.println(algoexpert.solution(a));
+        GoodTuple v = new GoodTuple();
+        int[] a = {1, 1, 1, 2, 1, 3, 4};
+        int[] b = {1, 1, 2, 1, 2 ,1 , 1};
+        System.out.println(v.solution(a));
+        System.out.println(v.solution(b));
     }
 }
